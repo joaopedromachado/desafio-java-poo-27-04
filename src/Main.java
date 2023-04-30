@@ -1,20 +1,33 @@
 import br.com.agi.jucaflix.*;
 
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
 
-//        Scanner scanner = new Scanner(System.in);
-//        int opMenu;
-
-        MovieRepository repository = new MovieRepository();
-        MovieServices services = new MovieServices(new MovieRecommendationFilter(Genre.COMEDY, 9.0));
-        services.recommendUser();
-
-//        repository.removeMovie(0);
-//        repository.getAllMovies();
-
+        System.out.println(
+                "-------------------------------------------- \n" +
+                        "|   BEM-VINDO(A) AO GERENCIADOR DE FILMES  |\n" +
+                        "|                                          |\n" +
+                        "|  1 - Adicionar filmes                    |\n" +
+                        "|  2 - Remove filmes                       |\n" +
+                        "|  3 - Pesquisar filmes                    |\n" +
+                        "|  4 - Classificar filmes                  |\n" +
+                        "|  5 - Recomendar filmes                   |\n" +
+                        "|  0 - Sair                                |\n" +
+                        "--------------------------------------------\n");
+//        MovieRepository repository = new MovieRepository();
+//
+//        repository.searchMovies(movie -> movie.getGenre() == Genre.ACTION);
+//
+////        System.out.println(repository.searchMovies(movie -> movie.getGenre() == Genre.DRAMA));
+//
+//        MovieRecommendationService recommendationService = new MovieRecommendationService(Genre.ROMANCE, 4.0);
+//
+//        recommendationService.recommendMovies(repository);
+//        System.out.println(recommendationService.recommendMovies(repository));
+//
+//        do {
+//
+//        }while(opMenu != 0);
 
     }
 }

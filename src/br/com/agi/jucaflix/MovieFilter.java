@@ -3,5 +3,5 @@ package br.com.agi.jucaflix;
 import java.util.List;
 
 public interface MovieFilter {
-    List<Movie> filter(List<Movie> movies);
+    boolean filter(Movie movie);
 }
