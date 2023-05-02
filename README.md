@@ -40,6 +40,7 @@ removeMovie(Movie movie) - para remover um filme do repositório.
 searchMovies(MovieFilter filter) - para buscar filmes com base em um critério de filtragem. Este método deve retornar uma lista de objetos do tipo Movie que atendem ao critério de filtragem.
 
 ## Crie uma classe "MovieRecommendationService" que implementa a interface "MovieFilter".
+
 Esta classe deve ter os seguintes atributos.
 
 userPreferences (preferências do usuário) - enum com valores para ação, comédia, drama, terror e romance.

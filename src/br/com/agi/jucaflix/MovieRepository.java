@@ -33,10 +33,20 @@ public class MovieRepository {
         return filteredMovies;
     }
 
-    public void getAllMovies(){
-        this.movies.forEach(movie -> {
-            System.out.println(movie);
-        });
+    public boolean isIndexListMovieValid(int index){
+        return index >= 0 && index < movies.size();
+    }
+
+    public void changeMovieRatingByIndex(int index, double rating){
+        movies.get(index).addRating(rating);
+    }
+
+    public void getAllMoviesInRepository(){
+        int i = 0;
+        for (Movie movie : movies){
+            System.out.println("\nCódigo do filme: " + i + " | " + movie.getTitle() + " | " + movie.getRating() +"\n");
+            i++;
+        }
     }
 
 }
