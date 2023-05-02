@@ -19,7 +19,6 @@ public class MovieRecommendationService implements MovieFilter {
 
     @Override
     public boolean filter(Movie movie) {
-        return movie.getGenre() == userPreferences && movie.getRating() >= ratingThreshold;
+        return movie.getGenre() == this.userPreferences && movie.getRating() >= this.ratingThreshold;
     }
-
 }

@@ -44,7 +44,7 @@ public class MovieRepository {
     public void getAllMoviesInRepository(){
         int i = 0;
         for (Movie movie : movies){
-            System.out.println("\nCódigo do filme: " + i + " | " + movie.getTitle() + " | " + movie.getRating() +"\n");
+            System.out.printf("%nCódigo do filme: %d | Título: %s | Ano: %d | Gênero: %s | Diretor: %s | Classificação: %.1f%n%n", i, movie.getTitle(), movie.getYear(), movie.getGenre(), movie.getDirector(), movie.getRating());
             i++;
         }
     }

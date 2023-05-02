@@ -13,18 +13,25 @@ public class MenuInteractionService implements UserNavigationMenu {
     public void runApplication()  {
         do {
             printUserMenu();
-            if (opMenu == 1){
-                addInteractionMenu();
-            } else if (opMenu == 2) {
-                removeInteractionMenu();
-            } else if (opMenu == 3){
-                userMovieSearcher();
-            } else if (opMenu == 4) {
-                changeUserMovieRating();
-            } else if (opMenu == 5) {
-                userRecommendationMovie();
-            } else if (opMenu == 6) {
-                repository.getAllMoviesInRepository();
+            switch (opMenu){
+                case 1:
+                    addInteractionMenu();
+                    break;
+                case 2:
+                    removeInteractionMenu();
+                    break;
+                case 3:
+                    userMovieSearcher();
+                    break;
+                case 4:
+                    changeUserMovieRating();
+                    break;
+                case 5:
+                    userRecommendationMovie();
+                    break;
+                case 6:
+                    repository.getAllMoviesInRepository();
+                    break;
             }
         }while(opMenu != 0);
 
@@ -59,7 +66,7 @@ public class MenuInteractionService implements UserNavigationMenu {
     public void changeUserMovieRating(){
         repository.getAllMoviesInRepository();
 
-        System.out.print("Selecione o filme: ");
+        System.out.print("Selecione o código do filme: ");
         indexMovie = scanner.nextInt();
 
         System.out.print("Alterar classificação: ");
@@ -70,14 +77,32 @@ public class MenuInteractionService implements UserNavigationMenu {
 
     @Override
     public void userMovieSearcher(){
-//        System.out.println("Opções de busca por filmes\n1 - Buscar por gênero\n2 - Buscar por classificação\n0 - Voltar ao menu principal\nDigite: ");
-        System.out.print("Procure um filme pela classificação: ");
-        rating = scanner.nextDouble();
-        try{
-            System.out.println(repository.searchMovies(movie -> movie.getRating() > rating));
-        }catch(IllegalArgumentException e){
-            e.printStackTrace();
-        }
+        int opUser;
+        do {
+            System.out.print("\nOpções de busca por filmes\n1 - Buscar por gênero\n2 - Buscar por classificação\n0 - Voltar ao menu principal\nDigite: ");
+            opUser = scanner.nextInt();
+            switch (opUser){
+                case 1:
+                    System.out.print("Procure um filme pelo gênero: ");
+                    genreStr = scanner.nextLine().toUpperCase();
+                    genreStr = scanner.nextLine().toUpperCase();
+                    try{
+                        System.out.println(repository.searchMovies(movie -> movie.getGenre() == Genre.valueOf(genreStr)));
+                    }catch(IllegalArgumentException e){
+                        e.printStackTrace();
+                    }
+                    break;
+                case 2:
+                    System.out.print("Procure um filme pela classificação: ");
+                    rating = scanner.nextDouble();
+                    try{
+                        System.out.println(repository.searchMovies(movie -> movie.getRating() > rating));
+                    }catch(IllegalArgumentException e){
+                        e.printStackTrace();
+                    }
+                    break;
+            }
+        }while(opUser != 0);
     }
 
     @Override
