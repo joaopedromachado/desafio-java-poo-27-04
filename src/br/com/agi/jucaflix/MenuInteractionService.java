@@ -35,7 +35,7 @@ public class MenuInteractionService implements UserNavigationMenu {
             }
         }while(opMenu != 0);
 
-        System.out.println("OBRIGADO POR USAR O JUCAFLIX!");
+        System.out.println("\n\nOBRIGADO POR USAR O JUCAFLIX! ^_^");
     }
 
     public void checkIfGenreExists(){
