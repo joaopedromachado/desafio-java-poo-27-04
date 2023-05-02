@@ -33,11 +33,10 @@ public class MovieRepository {
         return filteredMovies;
     }
 
-    public List<Movie> getAllMovies(){
-        movies.forEach(movie -> {
+    public void getAllMovies(){
+        this.movies.forEach(movie -> {
             System.out.println(movie);
         });
-        return null;
     }
 
 }

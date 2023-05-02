@@ -58,7 +58,7 @@ public class Movie {
     // title, year, genre, director
     @Override
     public String toString() {
-        return String.format("Titulo do filme: %s%nAno de lançamento: %d%nGênero: %s%nDiretor do filme: %s%n", this.title, this.year, this.genre, this.director);
+        return String.format("Titulo do filme: %s%nAno de lançamento: %d%nGênero: %s%nDiretor do filme: %s%nClassificação do filme: %.1f%n", this.title, this.year, this.genre, this.director, this.rating);
     }
 
 }
