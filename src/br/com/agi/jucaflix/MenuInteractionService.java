@@ -1,11 +1,12 @@
 package br.com.agi.jucaflix;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class MenuInteractionService implements UserNavigationMenu {
 
     MovieRepository repository = new MovieRepository();
-    Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
     int opMenu, year, indexRemoveMovie,  indexMovie;
     String title, director, genreStr;
     double rating;
