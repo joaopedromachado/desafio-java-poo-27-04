@@ -43,7 +43,7 @@ public class MenuInteractionService implements UserNavigationMenu {
         Genre genre = null;
         while(genre == null) {
             System.out.print("Digite o gênero do filme (ACTION, COMEDY, DRAMA, HORROR, ROMANCE): ");
-            genreStr = scanner.nextLine().toUpperCase();
+            genreStr = scanner.next().toUpperCase();
             try {
                 genre = Genre.valueOf(genreStr);
             }catch(IllegalArgumentException e) {
@@ -54,9 +54,7 @@ public class MenuInteractionService implements UserNavigationMenu {
 
     @Override
     public void userRecommendationMovie() {
-        System.out.print("Digite o gênero do filme (ACTION, COMEDY, DRAMA, HORROR, ROMANCE): ");
-        genreStr = scanner.nextLine().toUpperCase();
-        genreStr = scanner.nextLine().toUpperCase();
+        checkIfGenreExists();
         System.out.print("Informe a classificação mínima: ");
         rating = scanner.nextDouble();
         new MovieRecommendationService(Genre.valueOf(genreStr), rating).recommendMovies(repository);
@@ -84,13 +82,12 @@ public class MenuInteractionService implements UserNavigationMenu {
             opUser = scanner.nextInt();
             switch (opUser){
                 case 1:
-                    System.out.print("Procure um filme pelo gênero: ");
-                    genreStr = scanner.nextLine().toUpperCase();
-                    genreStr = scanner.nextLine().toUpperCase();
+                    checkIfGenreExists();
                     try{
                         System.out.println(repository.searchMovies(movie -> movie.getGenre() == Genre.valueOf(genreStr)));
                     }catch(IllegalArgumentException e){
                         e.printStackTrace();
+                        System.out.println("Codigo errado");
                     }
                     break;
                 case 2:
@@ -109,17 +106,15 @@ public class MenuInteractionService implements UserNavigationMenu {
     @Override
     public void addInteractionMenu()  {
         System.out.print("Título do filme: ");
-        scanner.nextLine();
-        title = scanner.nextLine();
+        title = scanner.next();
 
         System.out.print("Ano de lançamento: ");
         year = scanner.nextInt();
-        scanner.nextLine();
 
         checkIfGenreExists();
 
         System.out.print("Diretor do filme: ");
-        director = scanner.nextLine();
+        director = scanner.next();
 
         System.out.print("Classificação do filme: ");
         rating = scanner.nextDouble();
